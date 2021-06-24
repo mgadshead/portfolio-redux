@@ -44,8 +44,8 @@ const WorkCard = props => {
             dispatch({ type: 'setFixed', currentCardPosition, i });
             // Animate to full screen
             // Stop the transition taking place if you're going from case study to case study
-            if (transition === true) {
-                let bool = true;
+            if (transition === false) {
+                console.log('false');
                 dispatch({ type: 'setTransition', bool: true });
                 // So evidently promise chains don't happen in a way that guarantees a repaint between them
                 // I also can't figure out how to chain requestAnimationFrame functions yet
@@ -54,6 +54,7 @@ const WorkCard = props => {
                     dispatch({ type: 'animateCardOpen' });
                 }, 16);
             } else {
+                console.log('true');
                 dispatch({ type: 'setTransition', bool: false });
                 dispatch({ type: 'animateCardOpen' });
             }
