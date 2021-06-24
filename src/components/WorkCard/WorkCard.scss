@@ -1,0 +1,36 @@
+@import '../../App.scss';
+
+.WorkCard {
+    height: 50vh;
+    width: 50vw;
+    position: relative;
+    flex-shrink: 0;
+    .expand-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width: 50vw;
+        @include hover-supported() {
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+        img {
+            max-width: 64%;
+            max-height: 64%;
+            pointer-events: none;
+        }
+    }
+    &.active {
+        .expand-container {
+            width: 100vw;
+            height: 100vh;
+            @include hover-supported() {
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

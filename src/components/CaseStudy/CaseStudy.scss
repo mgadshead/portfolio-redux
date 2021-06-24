@@ -1,0 +1,258 @@
+@import '../../App.scss';
+
+.CaseStudy {
+    padding-top: 100vh;
+    z-index: 2;
+    position: relative;
+    .content {
+        background: #f3fdff;
+        z-index: 3;
+        position: relative;
+    }
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        color: #333;
+        font-size: 24px;
+        padding: 120px 24px;
+        @media all and (max-width: 728px) {
+            padding: 80px 24px;
+            font-size: 18px;
+        }
+        img {
+            width: 100%;
+            margin-bottom: 80px;
+        }
+    }
+    .images {
+        margin: 80px 0 120px;
+        @media all and (max-width: 728px) {
+            margin: 80px 0;
+        }
+        img {
+            margin-bottom: 120px;
+            @media all and (max-width: 728px) {
+                margin-bottom: 80px;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .copy {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 24px;
+        @media all and (max-width: 728px) {
+            font-size: 18px;
+        }
+    }
+    h1 {
+        margin: 0 0 48px 0;
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        @media all and (max-width: 728px) {
+            font-size: 32px;
+        }
+    }
+    p {
+        line-height: 1.6;
+        margin-bottom: 32px;
+    }
+    a {
+        color: $blue;
+        text-decoration: none;
+        transition: $transition;
+        font-weight: 700;
+        @include hover-supported() {
+            &:hover {
+                color: rgba($blue, 0.4);
+            }
+        }
+    }
+    h2 {
+        font-size: 32px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        @media all and (max-width: 728px) {
+            font-size: 24px;
+        }
+    }
+    ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            margin-right: 16px;
+            margin-bottom: 8px;
+        }
+    }
+    .bottom-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 700;
+        .no-link {
+            opacity: 0;
+        }
+        #home-link {
+            color: $blue;
+            transition: $transition;
+            cursor: pointer;
+            @include hover-supported() {
+                &:hover {
+                    color: rgba($blue, 0.4);
+                }
+            }
+        }
+        .previous {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: $blue;
+            cursor: pointer;
+            transition: $transition;
+            svg {
+                width: 16px;
+                transform: rotate(90deg);
+                position: relative;
+                top: -1px;
+            }
+            @media all and (max-width: 728px) {
+                font-size: 12px;
+                margin-top: 2px;
+                svg {
+                    width: 12px;
+                }
+            }
+            @include hover-supported() {
+                &:hover {
+                    color: rgba($blue, 0.4);
+                }
+            }
+        }
+        .next {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: $blue;
+            cursor: pointer;
+            transition: $transition;
+            svg {
+                width: 16px;
+                transform: rotate(-90deg);
+                position: relative;
+                top: -1px;
+            }
+            @media all and (max-width: 728px) {
+                font-size: 12px;
+                margin-top: 2px;
+                svg {
+                    width: 12px;
+                }
+            }
+            @include hover-supported() {
+                &:hover {
+                    color: rgba($blue, 0.4);
+                }
+            }
+        }
+    }
+    .home-button {
+        background: $blue;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $blue;
+        transition: $transition;
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 4;
+        @include hover-supported() {
+            &:hover {
+                background: #fff;
+                svg {
+                    path {
+                        fill: $blue;
+                    }
+                }
+            }
+        }
+        svg {
+            width: 24px;
+            height: 24px;
+            transition: $transition;
+            path {
+                fill: #fff;
+            }
+        }
+        &.show-home-button {
+            opacity: 1;
+        }
+    }
+    .scroll-down {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 18vh;
+        font-weight: 600;
+        font-size: 24px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: $transition;
+        z-index: 2;
+        letter-spacing: 0.8px;
+        svg {
+            width: 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(50% - 32px);
+            @media all and (max-width: 728px) {
+                bottom: calc(50% - 16px);
+                width: 16px;
+            }
+        }
+        &.show-scroll-down {
+            opacity: 1;
+            .scroll-button {
+                cursor: pointer;
+                pointer-events: auto;
+            }
+        }
+        @media all and (max-width: 728px) {
+            font-size: 14px;
+        }
+        .scroll-button {
+            padding: 8px 8px 32px 8px;
+            pointer-events: none;
+            transition: $transition;
+            @include hover-supported() {
+                &:hover {
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+    .lazy {
+        opacity: 0;
+        transition: $transition;
+        &.loaded {
+            opacity: 1;
+        }
+    }
+}
